@@ -1,38 +1,42 @@
 /* Global Variables */
 
 
-let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = text;
+let baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
+const apiKey = "fc01f7cc1b734751ec308977748b84d3";
+let text = 'this is a test message to see if i can get the api call working'
+let lang = 'en'
 
-//listen for 'click' and then run processInfo
-document.getElementById('generate').addEventListener('click', processInfo)
-const zipCode = document.getElementById("zip").value;
-const userInput = document.getElementById("feelings").value;
-
-//Once a click occurs, this function will call and get the weather info from the API//
-function processInfo(e){
-    const zipCode= document.getElementById('zip').value
-    const userInput = document.getElementById("feelings").value;
-    getWeather(baseURL, zipCode, apiKey)//get weather data//
-    .then(function(data){//then post the data to the server//
-        postData('/addData', {
-            temp:data.main.temp, 
-            date:newDate, 
-            input:userInput});
-        updateUI()//this runs and updates the UI!//
-    });
+const getAnalysis = async (baseURL, apiKey, text, lang) => {
+  const res = await fetch(
+    baseURL + apiKey + "&" + text+ '&'+ lang
+  );
+  try {
+    const data = await res.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log("error", error);
+  }
 };
 
-const getWeather = async (baseURL, zipCode, apiKey) =>{
-    const res = await fetch(baseURL+zipCode+'&units=imperial&appid='+apiKey)
-    try {
-        const data = await res.json();
-        console.log(data);
-        return data;
-    }catch (error){
-        console.log('error', error);
-    }
-}
+
+//listen for 'click' and then run processInfo
+// document.getElementById('generate').addEventListener('click', processInfo)
+// const zipCode = document.getElementById("zip").value;
+// const userInput = document.getElementById("feelings").value;
+
+
+function processInfo(e){
+    getAnalysis(baseURL, apiKey, text, lang) //get text analysis data//
+      .then(function (data) {
+        //then post the data to the server//
+        postData("/addData", {
+          body: data.body
+        });
+        updateUI(); //this runs and updates the UI!//
+      });
+};
+
 
 const postData = async (url='', data = {}) => {
     console.log('POST');
