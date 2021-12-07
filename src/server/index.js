@@ -1,4 +1,4 @@
-appData= {}
+appData = {application_key: process.env.API_KEY};
 
 var path = require('path')
 const express = require('express')
@@ -12,8 +12,8 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
-var textapi = {
-  application_key: process.env.API_KEY,
+creds = {
+  application_key:process.env.API_KEY,
 };
 
 app.get('/', function (req, res) {
@@ -26,11 +26,14 @@ app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
 
-app.get('/creds', function (req, res) {
-    const creds = textapi.application_key;
-    res.send(creds)
-})
 
 
-app.post("/addData", addData);
-console.log("POST");
+
+
+app.get('/all', sendCreds);
+// console.log("POST");
+
+function sendCreds(req,res){
+    console.log(appData);
+    res.send(appData)
+     }

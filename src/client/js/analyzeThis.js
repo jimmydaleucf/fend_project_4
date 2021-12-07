@@ -2,9 +2,23 @@ let baseURl= "https://api.meaningcloud.com/sentiment-2.1?"
 let input = document.getElementById("input");
 // const key = process.env.API_Key;
 
-async function analyzeThis() {
+ async function getCreds(){
+    const response = await fetch('/all');
+    console.log(response)
+    // const creds = request.json();
+    const key = response.application_key;
+    console.log(key);
+    return key;
+
+}
+
+function analyzeThis() {
+  getCreds();
+  apiCall();
+
+async function apiCall(){
   const formdata = new FormData();
-  formdata.append("key", "fc01f7cc1b734751ec308977748b84d3");
+  formdata.append("key", `${key}`);
   formdata.append(
     "txt",
     "This is a test message to see if the boilerplate API call works"
@@ -27,6 +41,7 @@ async function analyzeThis() {
     catch(error) {
         console.log("error", error);
     }
+}
   
 //   .then((response) => ({
 //       status: response.status,
