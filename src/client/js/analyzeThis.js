@@ -3,16 +3,12 @@ let input = document.getElementById("input");
 // const key = process.env.API_Key;
 
  const getCreds = async (url = "") => {
-   const response = await fetch("/all");
-   console.log(response);
+   const request = await fetch("http://localhost:8081/all");
    try {
-     console.log(response);
-     const allData = await response.json();
-
-     // const creds = request.json();
-     const key = response.application_key;
-     console.log(key);
-     return key;
+    
+     const allData = await request.json();
+     console.log(allData)
+     
    } catch (error) {
      console.log("error", error);
    }

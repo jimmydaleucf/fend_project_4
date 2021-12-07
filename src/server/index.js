@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
+app.listen(8081, function () {
     console.log('Example app listening on port 8080!')
 })
 
@@ -30,9 +30,9 @@ app.listen(8080, function () {
 
 
 
-app.get('/all', function (req,res){
-    console.log(creds);
-    res.send(creds);
+app.get("/all", function (req, res) {
+  console.log(creds);
+  res.send(creds);
 });
 // console.log("POST");
 
