@@ -4,12 +4,17 @@ let input = document.getElementById("input");
 
  async function getCreds(){
     const response = await fetch('/all');
-    console.log(response)
+    try{
+        console.log(response)
+        const allData = await response.json()
+    
     // const creds = request.json();
     const key = response.application_key;
     console.log(key);
     return key;
-
+    }catch(error){
+            console.log('error', error);
+    }
 }
 
 function analyzeThis() {
