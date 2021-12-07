@@ -5,7 +5,6 @@ let input = document.getElementById("input");
  const getCreds = async (url = "") => {
    const request = await fetch("http://localhost:8081/all");
    try {
-    
      const allData = await request.json();
      console.log(allData)
      
@@ -16,7 +15,7 @@ let input = document.getElementById("input");
 
 function analyzeThis() {
   getCreds();
-  apiCall(getCreds);
+  apiCall();
 
 async function apiCall(){
   const formdata = new FormData();
