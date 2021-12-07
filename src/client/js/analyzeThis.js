@@ -1,5 +1,6 @@
 let baseURl= "https://api.meaningcloud.com/sentiment-2.1?"
 let input = document.getElementById("input");
+// const key = process.env.API_Key;
 
 async function analyzeThis() {
   const formdata = new FormData();

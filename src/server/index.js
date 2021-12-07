@@ -1,3 +1,5 @@
+appData= {}
+
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
@@ -24,12 +26,11 @@ app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+app.get('/creds', function (req, res) {
+    const creds = textapi.application_key;
+    res.send(creds)
 })
-app.get('/analyze', function(req,res) { 
 
-})
 
 app.post("/addData", addData);
 console.log("POST");
