@@ -2,28 +2,29 @@ let baseURl= "https://api.meaningcloud.com/sentiment-2.1?"
 let input = document.getElementById("input");
 // const key = process.env.API_Key;
 
- async function getCreds(){
-    const response = await fetch('/all');
-    try{
-        console.log(response)
-        const allData = await response.json()
-    
-    // const creds = request.json();
-    const key = response.application_key;
-    console.log(key);
-    return key;
-    }catch(error){
-            console.log('error', error);
-    }
-}
+ const getCreds = async (url = "") => {
+   const response = await fetch("/all");
+   console.log(response);
+   try {
+     console.log(response);
+     const allData = await response.json();
+
+     // const creds = request.json();
+     const key = response.application_key;
+     console.log(key);
+     return key;
+   } catch (error) {
+     console.log("error", error);
+   }
+ };
 
 function analyzeThis() {
   getCreds();
-  apiCall();
+  apiCall(getCreds);
 
 async function apiCall(){
   const formdata = new FormData();
-  formdata.append("key", `${key}`);
+  formdata.append("key", "fc01f7cc1b734751ec308977748b84d3");
   formdata.append(
     "txt",
     "This is a test message to see if the boilerplate API call works"

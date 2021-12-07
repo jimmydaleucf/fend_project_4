@@ -12,7 +12,7 @@ app.use(express.static('dist'))
 
 console.log(__dirname)
 
-creds = {
+var creds = {
   application_key:process.env.API_KEY,
 };
 
@@ -30,10 +30,13 @@ app.listen(8080, function () {
 
 
 
-app.get('/all', sendCreds);
+app.get('/all', function (req,res){
+    console.log(creds);
+    res.send(creds);
+});
 // console.log("POST");
 
 function sendCreds(req,res){
-    console.log(appData);
-    res.send(appData)
+    console.log(creds);
+    res.send(creds);
      }
