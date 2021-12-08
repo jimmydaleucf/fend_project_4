@@ -1,7 +1,7 @@
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
 import { postData } from './js/postData'
-import { updateUI } from "./js/analyzeThis"
+import { updateUI } from "./js/updateUI"
 
 import './styles/resets.scss'
 import './styles/base.scss'
