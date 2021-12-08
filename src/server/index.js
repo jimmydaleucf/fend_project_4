@@ -82,7 +82,7 @@ let analyze = async function apiCall() {
   try {
     json= await response.json();
     console.log("printing JSON")
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     console.log("error", error);
