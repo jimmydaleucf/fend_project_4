@@ -1,48 +1,27 @@
-let baseURl= "https://api.meaningcloud.com/sentiment-2.1?"
-let input = document.getElementById("input");
+// let baseURl= "https://api.meaningcloud.com/sentiment-2.1"
+// let input = document.getElementById("input");
 // const key = process.env.API_Key;
 
- const getCreds = async (url = "") => {
-   const request = await fetch("http://localhost:8081/all");
-   try {
-     const allData = await request.json();
-     console.log(allData)
-     
-   } catch (error) {
-     console.log("error", error);
-   }
- };
+//  const getCreds = async (url = "") => {
+//    const request = await fetch("http://localhost:8081/all");
+//    try {
+//      const allData = await request.json();
+//      console.log(allData)
+//    } catch (error) {
+//      console.log("error", error);
+//    }
+//  };
 
-function analyzeThis() {
-  getCreds();
-  apiCall();
-
-async function apiCall(){
-  const formdata = new FormData();
-  formdata.append("key", "fc01f7cc1b734751ec308977748b84d3");
-  formdata.append(
-    "txt",
-    "This is a test message to see if the boilerplate API call works"
-  );
-  formdata.append("lang", "en"); // 2-letter code, like en es fr ...
-
-  const requestOptions = {
-    method: "POST",
-    body: formdata,
-    redirect: "follow",
-  };
-
-  const response = await fetch(
-    "https://api.meaningcloud.com/sentiment-2.1",requestOptions) //?key=fc01f7cc1b734751ec308977748b84d3&lang=en&txt=This is a hardcoded message to see if i can get the api to work.")
-    try {
-        const results = await response.json();
-        console.log(results);
-        return results
-    }  
-    catch(error) {
-        console.log("error", error);
-    }
+function analyzeThis(formText) {
+    // let formText = document.getElementById('input').value
+    // let formTextString = {formText};
+    console.log("formTextvalue="+formText);
+    Client.postData('http://localhost:8081/addData',{
+        formText:formText}
+        );
+    console.log(formText+"analyzeThis function")
 }
+ 
   
 //   .then((response) => ({
 //       status: response.status,
@@ -51,6 +30,6 @@ async function apiCall(){
 //     .then(({ body, status }) => console.log(status, body))
     
 // }
-}
+
 
 export {analyzeThis}

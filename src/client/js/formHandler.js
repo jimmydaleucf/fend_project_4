@@ -1,10 +1,12 @@
-
 function handleSubmit(event) {
     event.preventDefault()
-
     // check what text was put into the form field
     let formText = document.getElementById('input').value
-    Client.analyzeThis(formText);
+    let formTextJSON = {formText};
+    console.log(formTextJSON)
+    Client.postData('http://localhost:8081/addData',formTextJSON)
+    console.log(formText+"<== formText")
+}
     
 
     // console.log("::: Form Submitted :::")
@@ -13,6 +15,6 @@ function handleSubmit(event) {
     // .then(function(res) {
     //     document.getElementById('results').innerHTML = res.message
     // })
-}
+
 
 export { handleSubmit }
