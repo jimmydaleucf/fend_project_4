@@ -1,4 +1,4 @@
-import { checkForName } from './js/nameChecker'
+// import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
 import { postData } from './js/postData'
 import { updateUI } from "./js/updateUI"
