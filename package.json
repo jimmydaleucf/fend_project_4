@@ -1,9 +1,12 @@
 {
   "name": "Jimmy's Webpack Project",
+  "jest": {
+    "verbose": true
+  },
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
@@ -13,6 +16,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "babel-plugin-transform-scss": "^1.1.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -21,6 +25,7 @@
     "formdata": "^0.10.4",
     "mime-db": "^1.51.0",
     "node-fetch": "^2.6.6",
+    "regenerator-runtime": "^0.13.9",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
   },
@@ -35,6 +40,7 @@
     "jest": "^27.4.4",
     "mini-css-extract-plugin": "^2.4.5",
     "node-sass": "^6.0.1",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "^5.2.5",
