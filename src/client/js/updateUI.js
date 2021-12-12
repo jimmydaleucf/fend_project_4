@@ -1,5 +1,5 @@
 const updateUI = async (url = "") => {
-  const response = await fetch("/all");
+  const response = await fetch("http://localhost:8081/all");
   try {
     const allData = await response.json();
     // console.log(allData);

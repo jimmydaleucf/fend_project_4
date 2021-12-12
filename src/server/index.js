@@ -81,8 +81,8 @@ let analyze = async function apiCall() {
   ); //?key=fc01f7cc1b734751ec308977748b84d3&lang=en&txt=This is a hardcoded message to see if i can get the api to work.")
   try {
     json= await response.json();
-    // console.log("printing JSON")
-    // console.log(json);
+    console.log("printing JSON")
+    console.log(json);
     return json;
   } catch (error) {
     console.log("error", error);

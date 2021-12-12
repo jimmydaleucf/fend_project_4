@@ -1,4 +1,4 @@
-import { updateUI } from "..";
+// import { updateUI } from "..";
 
 function handleSubmit(event) {
     event.preventDefault()
@@ -8,10 +8,10 @@ function handleSubmit(event) {
     // console.log(formTextJSON)
     Client.postData('http://localhost:8081/addData',formTextJSON)
     .then(function(res){
-        updateUI();
+        Client.updateUI();
     }
         )
-}
+};
     
 
 
