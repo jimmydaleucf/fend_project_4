@@ -10,6 +10,7 @@
     ]
   ],
   "plugins": [
-    "babel-plugin-transform-scss"
+    ["babel-plugin-transform-scss"],
+    // ["@babel/transform-runtime"]
   ]
 }

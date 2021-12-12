@@ -1,7 +1,8 @@
 {
   "name": "Jimmy's Webpack Project",
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "testEnvironment": "jsdom"
   },
   "version": "1.0.0",
   "main": "index.js",
@@ -16,6 +17,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "babel-plugin-transform-scss": "^1.1.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
