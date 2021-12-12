@@ -2,7 +2,7 @@ import { updateUI } from "../src/client/js/updateUI";
 
 describe("Testing the functionality that updates the UI", () => {
   // The test() function has two arguments - a string description, and an actual test as a callback function.
-  test("Testing the handleSubmit() function", () => {
+  test("Testing the update UI function", () => {
     // Define the input for the function, if any, in the form of variables/array
     // Define the expected output, if any, in the form of variables/array
     // The expect() function, in combination with a Jest matcher, is used to check if the function produces the expected output

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const WorkBoxPlugin = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -26,18 +26,17 @@ module.exports = {
       },
     ],
   },
-
+  
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/client/views/index.html",
       filename: "./index.html",
     }),
-    new MiniCssExtractPlugin({ filename: "[name].css" }),
     new WorkBoxPlugin.GenerateSW(),
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
   ],
   optimization: {
-    minimizer: [new TerserPlugin({}), new CssMinimizerPlugin({})],
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
 };
 
- 
